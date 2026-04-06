@@ -58,9 +58,17 @@ cat tests/input.json | argocd-report -o report.html
 ```yaml
 generate-deploy-report:
   stage: deploy
-  image: ghcr.io/ndkprd/argocd-report:latest
+  image: quay.io/argoproj/argocd:latest
+  variables:
+    ARGOCD_REPORT_VERSION: v0.1.3
+  before_script:
+    - |
+      curl -sSL -o argocd-report-linux-amd64 \
+        https://github.com/ndkprd/argocd-report/releases/download/${ARGOCD_REPORT_VERSION}/argocd-report_linux_amd64 && \
+        mv argocd-report-linux-amd64 /usr/local/bin/argocd-report && \
+        chmod +x /usr/local/bin/argocd-report
   script:
-    - argocd app get ${ARGOCD_APP_NAME} -o json | argocd-report -o report.html -title "Deploy Report for ${CI_PROJECT_NAME} (${CI_ENVIRONMENT_NAME})"
+    - argocd app get ${ARGOCD_APP_NAME} -o json > argocd-app.json| argocd-report -o report.html -title "Deploy Report for ${CI_PROJECT_NAME} (${CI_ENVIRONMENT_NAME})"
   artifacts:
     when: always
     paths:
