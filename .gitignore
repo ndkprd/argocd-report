@@ -4,6 +4,7 @@ devops-reporter.exe
 
 # Non-defaults
 templates/
+!cmd/templates/
 tests/
 
 # Go
