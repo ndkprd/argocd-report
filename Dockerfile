@@ -5,10 +5,10 @@ WORKDIR /build
 COPY go.mod .
 COPY cmd/ ./cmd/
 
-RUN go build -o /argocd-report ./cmd/
+RUN go build -o /devops-reporter ./cmd/
 
 FROM alpine:3.23
 
-COPY --from=builder /argocd-report /usr/local/bin/argocd-report
+COPY --from=builder /devops-reporter /usr/local/bin/devops-reporter
 
-ENTRYPOINT ["argocd-report"]
+ENTRYPOINT ["devops-reporter"]

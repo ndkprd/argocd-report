@@ -1,0 +1,594 @@
+{
+  "resources": [
+    {
+      "filename": "stdin",
+      "kind": "Namespace",
+      "name": "asdp-business-abc-staging",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "audit-trail-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "discovery-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "file-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "frontend-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "gateway-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "management-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "notification-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "payment-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "product-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "report-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "scheduler-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "auth-external-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "auth-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "access-service-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "access-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "discovery-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "file-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "frontend-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "auth-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "gateway-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "management-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "auth-external-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "notification-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "product-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "payment-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "report-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "scheduler-service-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "audit-trail-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ConfigMap",
+      "name": "abc-be-configmap-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ConfigMap",
+      "name": "abc-fe-configmap-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Secret",
+      "name": "abc-be-secret-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Secret",
+      "name": "abc-fe-secret-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "access-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "discovery-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "file-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "frontend-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "gateway-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "management-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "notification-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "payment-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "product-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "report-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "scheduler-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "auth-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "audit-trail-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "auth-external-service-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "PersistentVolumeClaim",
+      "name": "abc-data-pvc",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "access-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "discovery-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "file-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "frontend-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "gateway-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "management-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "notification-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "payment-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "product-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "report-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "scheduler-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "auth-external-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "auth-service-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "audit-trail-deployment",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Ingress",
+      "name": "abc-frontend-service-ingress",
+      "version": "networking.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Ingress",
+      "name": "abc-gateway-service-ingress",
+      "version": "networking.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Ingress",
+      "name": "abc-auth-service-ingress",
+      "version": "networking.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Ingress",
+      "name": "abc-discovery-service-ingress",
+      "version": "networking.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-auth-external-service-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-frontend-service-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-discovery-service-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-auth-service-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-gateway-service-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-service-file-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    },
+    {
+      "filename": "stdin",
+      "kind": "Route",
+      "name": "abc-service-product-route",
+      "version": "route.openshift.io/v1",
+      "status": "statusError",
+      "msg": "could not find schema for Route"
+    }
+  ],
+  "summary": {
+    "valid": 66,
+    "invalid": 0,
+    "errors": 7,
+    "skipped": 0
+  }
+}

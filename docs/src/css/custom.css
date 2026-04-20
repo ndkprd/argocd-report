@@ -1,0 +1,26 @@
+/**
+ * Any CSS included here will be global.
+ */
+
+:root {
+  --ifm-color-primary: #1E398D;
+  --ifm-color-primary-dark: #1b3380;
+  --ifm-color-primary-darker: #193079;
+  --ifm-color-primary-darkest: #142763;
+  --ifm-color-primary-light: #213f9a;
+  --ifm-color-primary-lighter: #2242a1;
+  --ifm-color-primary-lightest: #284db8;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #00AEEF;
+  --ifm-color-primary-dark: #009dd8;
+  --ifm-color-primary-darker: #0094cc;
+  --ifm-color-primary-darkest: #007aa8;
+  --ifm-color-primary-light: #0bbff6;
+  --ifm-color-primary-lighter: #19c3f7;
+  --ifm-color-primary-lightest: #42cef9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

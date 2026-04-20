@@ -1,56 +1,77 @@
-# argocd-report
+# devops-reporter
 
-A CLI tool that reads [ArgoCD](https://argoproj.github.io/cd/) Application JSON output and generates a self-contained static HTML deployment report.
+A CLI tool that reads JSON output from various DevSecOps tools and generates self-contained static HTML reports.
 
 ## Disclaimer
 
-This project is independently developed and is not affiliated with, endorsed by, or officially connected to the Argo Project or ArgoCD in any way. ArgoCD is the work of its respective contributors.
+This project is independently developed and is not affiliated with, endorsed by, or officially connected to any of the tools it supports. All referenced tools are the work of their respective contributors.
+
+## Supported Sources
+
+| Source | Description |
+|---|---|
+| `argocd` | [ArgoCD](https://argoproj.github.io/cd/) Application deployment reports |
+| `kubeconform` | [Kubeconform](https://github.com/yannh/kubeconform) manifest validation reports |
 
 ## Installation
 
 ### Build from source
 
 ```bash
-git clone https://github.com/ndkprd/argocd-report.git
-cd argocd-report
-go build -o argocd-report ./cmd/
+git clone https://github.com/ndkprd/devops-reporter.git
+cd devops-reporter
+go build -o devops-reporter ./cmd/
 ```
 
 ### Docker
 
 ```bash
-docker build -t argocd-report .
+docker build -t devops-reporter .
 ```
 
 ## Flags
 
 | Flag | Default | Description |
 |---|---|---|
+| `-source` | | **(required)** Report source: `argocd`, `kubeconform` |
 | `-o` | `report.html` | Output file path for the generated HTML report |
-| `-title` | `ArgoCD Application Report` | Title displayed in the report header |
+| `-title` | *(source default)* | Title displayed in the report header |
+| `-template` | *(built-in)* | Path to a custom HTML template file |
 | `-version` | | Print version and exit |
 
 ## Usage
 
-The input must be ArgoCD Application JSON, as returned by `argocd app get -o json` or `argocd app wait -o json`.
-
-### Basic
+### ArgoCD
 
 ```bash
-argocd app get my-app -o json | argocd-report
-# writes report.html in the current directory
+argocd app get my-app -o json | devops-reporter -source argocd
 ```
 
-### Custom output path and title
+```bash
+argocd app get my-app -o json | devops-reporter -source argocd -o deploy-report.html -title "Deploy Report - Service A"
+```
+
+With a custom template:
 
 ```bash
-argocd app get my-app -o json | argocd-report -o reports/deploy.html -title "Deployment Report - Service A (Staging)"
+argocd app get my-app -o json | devops-reporter -source argocd -template cmd/templates/argocd/asdp.template.html
+```
+
+### Kubeconform
+
+```bash
+kubeconform -output json ./manifests/ | devops-reporter -source kubeconform
+```
+
+```bash
+kubeconform -output json ./manifests/ | devops-reporter -source kubeconform -o validation-report.html
 ```
 
 ### From a file
 
 ```bash
-cat tests/input.json | argocd-report -o report.html
+cat tests/argocd/input.json | devops-reporter -source argocd -o report.html
+cat tests/kubeconform/input.json | devops-reporter -source kubeconform -o report.html
 ```
 
 ### In GitLab CI/CD
@@ -60,21 +81,25 @@ generate-deploy-report:
   stage: deploy
   image: quay.io/argoproj/argocd:latest
   variables:
-    ARGOCD_REPORT_VERSION: v0.1.3
+    DEVSECOPS_REPORTER_VERSION: v0.2.0
   before_script:
     - |
-      curl -sSL -o argocd-report-linux-amd64 \
-        https://github.com/ndkprd/argocd-report/releases/download/${ARGOCD_REPORT_VERSION}/argocd-report_linux_amd64 && \
-        mv argocd-report-linux-amd64 /usr/local/bin/argocd-report && \
-        chmod +x /usr/local/bin/argocd-report
+      curl -sSL -o devops-reporter-linux-amd64 \
+        https://github.com/ndkprd/devops-reporter/releases/download/${DEVSECOPS_REPORTER_VERSION}/devops-reporter_linux_amd64 && \
+        mv devops-reporter-linux-amd64 /usr/local/bin/devops-reporter && \
+        chmod +x /usr/local/bin/devops-reporter
   script:
-    - argocd app get ${ARGOCD_APP_NAME} -o json > argocd-app.json| argocd-report -o report.html -title "Deploy Report for ${CI_PROJECT_NAME} (${CI_ENVIRONMENT_NAME})"
+    - argocd app get ${ARGOCD_APP_NAME} -o json | devops-reporter -source argocd -o report.html -title "Deploy Report for ${CI_PROJECT_NAME} (${CI_ENVIRONMENT_NAME})"
   artifacts:
     when: always
     paths:
       - report.html
     expire_in: 1 week
 ```
+
+## Custom Templates
+
+You can provide your own HTML template via the `-template` flag. The template uses Go's `html/template` syntax and receives a source-specific data structure. See the built-in templates in `cmd/templates/` for reference.
 
 ## License
 

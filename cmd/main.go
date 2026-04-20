@@ -1,39 +1,72 @@
 package main
 
 import (
-	_ "embed"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"html/template"
 	"io"
 	"os"
+	"sort"
+	"strings"
 )
 
-//go:embed template.html
-var templateContent string
+// ReportSource defines a pluggable report source.
+type ReportSource struct {
+	DefaultTitle string
+	Template     string
+	FuncMap      template.FuncMap
+	Parse        func(data []byte, title string) (any, error)
+}
+
+var sources = map[string]*ReportSource{}
+
+func RegisterSource(name string, s *ReportSource) {
+	sources[name] = s
+}
 
 var version = "dev"
 
 func main() {
+	sourceNames := make([]string, 0, len(sources))
+	for name := range sources {
+		sourceNames = append(sourceNames, name)
+	}
+	sort.Strings(sourceNames)
+
 	outputFile := flag.String("o", "report.html", "output HTML file path")
-	title := flag.String("title", "ArgoCD Application Report", "report title")
+	source := flag.String("source", "", "report source: "+strings.Join(sourceNames, ", "))
+	title := flag.String("title", "", "report title (defaults to source-specific title)")
+	templateFile := flag.String("template", "", "path to a custom HTML template file (uses built-in template if not set)")
 	showVersion := flag.Bool("version", false, "print version and exit")
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stdout, "Usage: argocd app get <name> -o json | argocd-report [flags]\n\n")
-		fmt.Fprintf(os.Stdout, "Reads ArgoCD Application JSON from stdin and generates a static HTML report.\n\n")
+		fmt.Fprintf(os.Stdout, "Usage: <json-source> | devops-reporter -source <source> [flags]\n\n")
+		fmt.Fprintf(os.Stdout, "Reads JSON from stdin and generates a static HTML report.\n\n")
+		fmt.Fprintf(os.Stdout, "Supported sources: %s\n\n", strings.Join(sourceNames, ", "))
 		fmt.Fprintf(os.Stdout, "Flags:\n")
 		flag.CommandLine.SetOutput(os.Stdout)
 		flag.PrintDefaults()
 		fmt.Fprintf(os.Stdout, "\nExamples:\n")
-		fmt.Fprintf(os.Stdout, "  argocd app get my-app -o json | argocd-report -o report.html\n")
-		fmt.Fprintf(os.Stdout, "  kubectl get application my-app -o json | argocd-report -o report.html\n")
+		fmt.Fprintf(os.Stdout, "  argocd app get my-app -o json | devops-reporter -source argocd\n")
+		fmt.Fprintf(os.Stdout, "  kubeconform -output json ./manifests/ | devops-reporter -source kubeconform\n")
+		fmt.Fprintf(os.Stdout, "  argocd app get my-app -o json | devops-reporter -source argocd -template custom.template.html\n")
 	}
 	flag.Parse()
 
 	if *showVersion {
 		fmt.Println(version)
 		os.Exit(0)
+	}
+
+	if *source == "" {
+		fmt.Fprintf(os.Stderr, "error: -source flag is required (supported: %s)\n", strings.Join(sourceNames, ", "))
+		os.Exit(1)
+	}
+
+	src, ok := sources[*source]
+	if !ok {
+		fmt.Fprintf(os.Stderr, "error: unknown source %q (supported: %s)\n", *source, strings.Join(sourceNames, ", "))
+		os.Exit(1)
 	}
 
 	stat, _ := os.Stdin.Stat()
@@ -53,21 +86,33 @@ func main() {
 		os.Exit(1)
 	}
 
-	var app ArgoApplication
-	if err := json.Unmarshal(data, &app); err != nil {
-		fmt.Fprintf(os.Stderr, "error parsing JSON input: %v\n", err)
+	if !json.Valid(data) {
+		fmt.Fprintf(os.Stderr, "error: input is not valid JSON\n")
 		os.Exit(1)
 	}
 
-	reportData := BuildReportData(app, *title)
-
-	funcMap := template.FuncMap{
-		"syncClass":   syncClass,
-		"healthClass": healthClass,
-		"opClass":     opClass,
-		"shortRev":    shortRev,
+	reportTitle := *title
+	if reportTitle == "" {
+		reportTitle = src.DefaultTitle
 	}
-	tmpl, err := template.New("report").Funcs(funcMap).Parse(templateContent)
+
+	reportData, err := src.Parse(data, reportTitle)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error parsing input: %v\n", err)
+		os.Exit(1)
+	}
+
+	tmplContent := src.Template
+	if *templateFile != "" {
+		fileBytes, err := os.ReadFile(*templateFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error reading template file: %v\n", err)
+			os.Exit(1)
+		}
+		tmplContent = string(fileBytes)
+	}
+
+	tmpl, err := template.New("report").Funcs(src.FuncMap).Parse(tmplContent)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error parsing template: %v\n", err)
 		os.Exit(1)

@@ -1,13 +1,18 @@
 # Binaries
-argocd-report
-argocd-report.exe
+devops-reporter
+devops-reporter.exe
 
-# Build output
-*.html
-!cmd/*.html
-!tests/*.html
+# Non-defaults
+templates/**/*.template.html
+tests/**/*.report.html
 
 # Go
 *.test
 *.out
 vendor/
+
+# Node / Docusaurus
+node_modules/
+build/
+.docusaurus/
+.cache-loader/
