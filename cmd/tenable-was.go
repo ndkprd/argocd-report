@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-//go:embed templates/tenable-was/template.html
+//go:embed templates/tenable-was.html
 var tenableWasTemplate string
 
 func init() {

@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//go:embed templates/argocd/template.html
+//go:embed templates/argocd.html
 var argocdTemplate string
 
 func init() {
@@ -91,8 +91,8 @@ type ArgoApplication struct {
 		Project string `json:"project"`
 	} `json:"spec"`
 	Status struct {
-		Resources      []ArgoResource      `json:"resources"`
-		Sync           struct {
+		Resources []ArgoResource `json:"resources"`
+		Sync      struct {
 			Status   string `json:"status"`
 			Revision string `json:"revision"`
 		} `json:"sync"`

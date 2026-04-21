@@ -1,0 +1,76 @@
+{
+  "resources": [
+    {
+      "filename": "stdin",
+      "kind": "ConfigMap",
+      "name": "sample-project-web-configmap-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "RoleBinding",
+      "name": "sample-project-sample-project-web-rb",
+      "version": "rbac.authorization.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "ServiceAccount",
+      "name": "sample-project-sample-project-web-sa",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Namespace",
+      "name": "ndk-utility-sample-project-devops",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Secret",
+      "name": "sample-project-web-secret-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Secret",
+      "name": "oauth2-proxy-env",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Service",
+      "name": "sample-project-sample-project-web-service",
+      "version": "v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Ingress",
+      "name": "sample-project-sample-project-web-ingress",
+      "version": "networking.k8s.io/v1",
+      "status": "statusValid",
+      "msg": ""
+    },
+    {
+      "filename": "stdin",
+      "kind": "Deployment",
+      "name": "sample-project-sample-project-web",
+      "version": "apps/v1",
+      "status": "statusValid",
+      "msg": ""
+    }
+  ]
+}

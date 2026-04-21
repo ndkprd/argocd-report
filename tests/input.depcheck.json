@@ -1,0 +1,217 @@
+{
+  "reportSchema" : "1.1",
+  "scanInfo" : {
+    "engineVersion" : "12.1.6",
+    "dataSource" : [ {
+      "name" : "NVD API Last Checked",
+      "timestamp" : "2026-02-08T19:23:50Z"
+    }, {
+      "name" : "NVD API Last Modified",
+      "timestamp" : "2026-02-08T19:16:22Z"
+    } ]
+  },
+  "projectInfo" : {
+    "name" : "sample-project",
+    "reportDate" : "2026-02-09T17:54:36.735138219Z",
+    "credits" : {
+      "NVD" : "This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov",
+      "CISA" : "This report may contain data retrieved from the CISA Known Exploited Vulnerability Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "NPM" : "This report may contain data retrieved from the Github Advisory Database (via NPM Audit API): https://github.com/advisories/",
+      "RETIREJS" : "This report may contain data retrieved from the RetireJS community: https://retirejs.github.io/retire.js/",
+      "OSSINDEX" : "This report may contain data retrieved from the Sonatype OSS Index: https://ossindex.sonatype.org"
+    }
+  },
+  "dependencies" : [ {
+    "isVirtual" : false,
+    "fileName" : "app-init.js",
+    "filePath" : "/builds/itops/sample-project/src/js/app-init.js",
+    "md5" : "d927652502cb3ad7e0b21ab6c231794d",
+    "sha1" : "209843d14b7093d0db9ceb8fcccc885047e6f919",
+    "sha256" : "682be0f0851b965c886013c08cccbf22b321f468ae63b5d541db8e7519836ec0",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "awx-client.js",
+    "filePath" : "/builds/itops/sample-project/src/js/awx-client.js",
+    "md5" : "b2fd69ac9b8933e16b0df8b4de80ef37",
+    "sha1" : "bf78c940670e58d9a1e19779dbda1d62d8af38fd",
+    "sha256" : "dee86a744caf9687e8c37ac4239b810b177853c8674e399980d689bb1eb12ccb",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "docker-parser.js",
+    "filePath" : "/builds/itops/sample-project/src/js/docker-parser.js",
+    "md5" : "0e88ebb735f5905751280e40e7ac2adc",
+    "sha1" : "52358c2e33cfca3c5e4dd67013ff2ff35b208316",
+    "sha256" : "e9c4d14e0d55c8f8cddfc16c0aff80ee1b9576b695f19fbd499ea2ead7eb7416",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "email-notification.js",
+    "filePath" : "/builds/itops/sample-project/src/js/email-notification.js",
+    "md5" : "d484d03d0f7f77b3e06c3e48a63e20b2",
+    "sha1" : "093b51da39d5d98fc1522ab1fd46e5820ff6f78a",
+    "sha256" : "3d04326cc7100c3debe116cf4159f9d3df0ff1dd96a9e9ce0cf053b17344f0cc",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "form-management.js",
+    "filePath" : "/builds/itops/sample-project/src/js/form-management.js",
+    "md5" : "47e7db5ad386e6b9f353ebd1b7c09e5f",
+    "sha1" : "0ccd462a6252b2244577dd308f788ba9ec9ba20a",
+    "sha256" : "a9d7f5651572b6cf343d15104d25b0e628182db5af7213b1dbe3ecc4c01e8050",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "gitlab-client.js",
+    "filePath" : "/builds/itops/sample-project/src/js/gitlab-client.js",
+    "md5" : "288afeaf78c8cfeb786fe58c33f61bcb",
+    "sha1" : "bb935fbda62e10fafd204abfb2886f6a3c6e9085",
+    "sha256" : "c7f7fe21a3e4cb36a6095f92991292008dff53f3e02c40229b9ca0d2dc678ec3",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "gitlab-projects-ui.js",
+    "filePath" : "/builds/itops/sample-project/src/js/gitlab-projects-ui.js",
+    "md5" : "e5ac85b857befbcc012b4a9a9d645239",
+    "sha1" : "434b829c09de9e03f56f76378d00f7737e4e5be0",
+    "sha256" : "65a15de4f8503d1e71018f188d386c77b92809a22b2b11d5521a1afc43c5cb2d",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "kustomize-generator.js",
+    "filePath" : "/builds/itops/sample-project/src/js/kustomize-generator.js",
+    "md5" : "11f562552726631eae8d9f48a0729e54",
+    "sha1" : "7c3e6bcfd575b6487fcdc7fe6ec66b70aac645b9",
+    "sha256" : "c471462a111a067c6b0fefad5cb516e6177f3d5d672951720776eaf42afa61be",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "loading-animations.js",
+    "filePath" : "/builds/itops/sample-project/src/js/loading-animations.js",
+    "md5" : "f49f73e97f6da8675cb40db14f8904ed",
+    "sha1" : "f92aff74d16d506bd0bbb1532d7f7cac3ba36a34",
+    "sha256" : "1fad4a58148803c25e754970862be599f98a5ba08d84c1fd3043552db8077c08",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "modal-manager.js",
+    "filePath" : "/builds/itops/sample-project/src/js/modal-manager.js",
+    "md5" : "60ffb0cd412106957e9fe5d1d22aef15",
+    "sha1" : "3f0718beb7738c822bc901be92f2601b6dda1403",
+    "sha256" : "211096b4c4017a8c36984c038260b2dbfbe825a3ae4650877b076b9787dbb011",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "package.json",
+    "filePath" : "/builds/itops/sample-project/package.json",
+    "md5" : "acf183332c15db449ac6bd6996f9072c",
+    "sha1" : "ee27fade3aa4eb042d4d05ed42cd1b7be9485754",
+    "sha256" : "d84a52b2513e4ac3d6a1bc4fa58e581f71f00e809d8577dd0e2b530e08bc6efe",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "project-name-manager.js",
+    "filePath" : "/builds/itops/sample-project/src/js/project-name-manager.js",
+    "md5" : "9c84b50f912356c2dbc1a7d0de6f697a",
+    "sha1" : "f7a64be98e1afcc859cfdad6e1a190c8d48ea73f",
+    "sha256" : "945a4217154450186eef85cb94eb63de3638c69895f31d465851d7cac8615339",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "settings-manager.js",
+    "filePath" : "/builds/itops/sample-project/src/js/settings-manager.js",
+    "md5" : "93b3f4a7b059c60601c407cc3755d64d",
+    "sha1" : "1c6dc2244f19265a13a964a26d85a7f996464c31",
+    "sha256" : "4b71ffe0fbb857853e50207e4cb76bebe80f4ee7a48af9f7e4fea2d0a7ce8bfc",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "tab-manager.js",
+    "filePath" : "/builds/itops/sample-project/src/js/tab-manager.js",
+    "md5" : "42d6995f1eb6e49da00e252616bab756",
+    "sha1" : "84dacbe3bbb9a2f2ca06feb6f3af06546277cb91",
+    "sha256" : "a69e6cb3a97e709b5f86ae64896727c191590060093a60b332ef1fe43cec9721",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "theme-manager.js",
+    "filePath" : "/builds/itops/sample-project/src/js/theme-manager.js",
+    "md5" : "69cf4525f55cd07d0169c79e2f74ba0d",
+    "sha1" : "bbe05ac0af00d6d5f2b74487b56d308ec3c96260",
+    "sha256" : "508664984e9b60de920fefa2efc55fb44b03e8ae0eb10a089f80213160e012b5",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  }, {
+    "isVirtual" : false,
+    "fileName" : "utils.js",
+    "filePath" : "/builds/itops/sample-project/src/js/utils.js",
+    "md5" : "54361b5ac65b145bf5a62f27c24a6e30",
+    "sha1" : "7a65a0ec003467b479353d81ee95c9a81456604d",
+    "sha256" : "5ae9fe15ba06fb67cde011a094d2f567c530909555e1dce2ab4ef18889af1f1a",
+    "evidenceCollected" : {
+      "vendorEvidence" : [ ],
+      "productEvidence" : [ ],
+      "versionEvidence" : [ ]
+    }
+  } ]
+}

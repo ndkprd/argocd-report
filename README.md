@@ -13,6 +13,8 @@ This project is independently developed and is not affiliated with, endorsed by,
 | `argocd` | [ArgoCD](https://argoproj.github.io/cd/) Application deployment reports |
 | `kubeconform` | [Kubeconform](https://github.com/yannh/kubeconform) manifest validation reports |
 | `tenable-was` | [Tenable WAS](https://www.tenable.com/products/web-app-scanning) web application security scan reports |
+| `sbom-cdx` | [CycloneDX](https://cyclonedx.org/) Software Bill of Materials reports |
+| `dependency-check` | [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) vulnerability reports |
 
 ## Installation
 
@@ -34,7 +36,7 @@ docker build -t devops-reporter .
 
 | Flag | Default | Description |
 |---|---|---|
-| `-source` | | **(required)** Report source: `argocd`, `kubeconform`, `tenable-was` |
+| `-source` | | **(required)** Report source: `argocd`, `kubeconform`, `tenable-was`, `sbom-cdx`, `dependency-check` |
 | `-o` | `report.html` | Output file path for the generated HTML report |
 | `-title` | *(source default)* | Title displayed in the report header |
 | `-template` | *(built-in)* | Path to a custom HTML template file |
@@ -55,7 +57,7 @@ argocd app get my-app -o json | devops-reporter -source argocd -o deploy-report.
 With a custom template:
 
 ```bash
-argocd app get my-app -o json | devops-reporter -source argocd -template cmd/templates/argocd/asdp.template.html
+argocd app get my-app -o json | devops-reporter -source argocd -template cmd/templates/argocd/ndk.template.html
 ```
 
 ### Kubeconform
@@ -78,12 +80,34 @@ cat scan-report.json | devops-reporter -source tenable-was
 cat scan-report.json | devops-reporter -source tenable-was -o was-report.html -title "WAS Scan — Service A"
 ```
 
+### CycloneDX SBOM
+
+```bash
+cat sbom.json | devops-reporter -source sbom-cdx
+```
+
+```bash
+cat sbom.json | devops-reporter -source sbom-cdx -o sbom-report.html -title "SBOM — my-app (v1.0.0)"
+```
+
+### OWASP Dependency-Check
+
+```bash
+cat dependency-check-report.json | devops-reporter -source dependency-check
+```
+
+```bash
+cat dependency-check-report.json | devops-reporter -source dependency-check -o dep-report.html -title "Dependency Scan — my-app"
+```
+
 ### From a file
 
 ```bash
 cat tests/argocd/input.json | devops-reporter -source argocd -o report.html
 cat tests/kubeconform/input.json | devops-reporter -source kubeconform -o report.html
 cat tests/tenable-was/tenable-was-sample.json | devops-reporter -source tenable-was -o report.html
+cat tests/sbom-cdx/sbom-cdx-sample.json | devops-reporter -source sbom-cdx -o report.html
+cat tests/input.depcheck.json | devops-reporter -source dependency-check -o report.html
 ```
 
 ### In GitLab CI/CD

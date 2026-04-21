@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//go:embed templates/kubeconform/template.html
+//go:embed templates/kubeconform.html
 var kubeconformTemplate string
 
 func init() {

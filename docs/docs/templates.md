@@ -116,3 +116,83 @@ Each finding has `.PluginID`, `.Name`, `.Family`, `.Synopsis`, `.Description`, `
 |---|---|
 | `wasRiskClass .Severity` | Returns a CSS class for a severity string (e.g. `risk-critical`) |
 | `wasRiskLabel .Severity` | Returns a human-readable label (e.g. `Critical`) |
+
+### SBOM (CycloneDX) template data
+
+| Field | Type | Description |
+|---|---|---|
+| `.Title` | string | Report title |
+| `.GeneratedAt` | string | UTC timestamp when the report was rendered |
+| `.BOMFormat` | string | BOM format name (e.g. `CycloneDX`) |
+| `.SpecVersion` | string | CycloneDX spec version (e.g. `1.6`) |
+| `.SerialNumber` | string | BOM serial number (URN) |
+| `.BOMVersion` | int | BOM document version number |
+| `.CreatedAt` | string | Timestamp from the BOM metadata (UTC) |
+| `.Lifecycle` | string | Lifecycle phase(s) from metadata (e.g. `build`) |
+| `.Tool` | string | Generator tool name and version (first tool in metadata) |
+| `.MainComponent` | CdxComponent | The primary application described by the SBOM |
+| `.MainComponent.Name` | string | Application name |
+| `.MainComponent.Group` | string | Application group/organization |
+| `.MainComponent.Version` | string | Application version |
+| `.MainComponent.Description` | string | Application description |
+| `.MainComponent.PURL` | string | Package URL of the application |
+| `.MainComponent.Licenses` | []CdxLicenseEntry | License entries for the application |
+| `.MainLicense` | string | Resolved license string for the main component |
+| `.HasIssues` | bool | `true` when any component lacks license information |
+| `.Summary.Total` | int | Total component count |
+| `.Summary.Libraries` | int | Count of components with type `library` |
+| `.Summary.Applications` | int | Count of components with type `application` |
+| `.Summary.Unlicensed` | int | Count of components with no license info |
+| `.Summary.UniqueLicenses` | int | Count of distinct license identifiers |
+| `.Summary.Ecosystems` | int | Count of distinct package ecosystems |
+| `.Groups` | []CdxEcosystemGroup | Components grouped by package ecosystem |
+
+Each item in `.Groups` has:
+- `.Ecosystem` — ecosystem string (e.g. `npm`, `pypi`, `maven`)
+- `.Components` — slice of components in that ecosystem, sorted by name
+
+Each component has `.Name`, `.Group`, `.Version`, `.Description`, `.PURL`, `.Type`, `.BOMRef`, `.Licenses`, `.Hashes`.
+
+**Template functions (SBOM CDX):**
+
+| Function | Description |
+|---|---|
+| `cdxEcosystem .PURL` | Extracts the ecosystem from a PURL (e.g. `npm`, `pypi`) |
+| `cdxLicense .Licenses` | Returns the first resolved license string from a `[]CdxLicenseEntry` |
+| `cdxShortPurl .PURL` | Strips the `pkg:<ecosystem>/` prefix for compact display |
+| `cdxShortHash .Content` | Truncates a hash to the first 12 characters |
+
+### Dependency-Check template data
+
+| Field | Type | Description |
+|---|---|---|
+| `.Title` | string | Report title |
+| `.GeneratedAt` | string | UTC timestamp when the report was rendered |
+| `.ProjectName` | string | Project name from `projectInfo.name` |
+| `.ReportDate` | string | Report generation date from `projectInfo.reportDate` (UTC) |
+| `.EngineVersion` | string | Dependency-Check engine version |
+| `.DataSources` | []DepDataSource | NVD / OSS Index data source timestamps |
+| `.HasIssues` | bool | `true` when at least one vulnerable dependency exists |
+| `.Summary.Total` | int | Total dependency count |
+| `.Summary.Vulnerable` | int | Count of dependencies with vulnerabilities |
+| `.Summary.Clean` | int | Count of dependencies with no vulnerabilities |
+| `.Summary.Critical` | int | Total critical vulnerability count |
+| `.Summary.High` | int | Total high vulnerability count |
+| `.Summary.Medium` | int | Total medium vulnerability count |
+| `.Summary.Low` | int | Total low vulnerability count |
+| `.Summary.Info` | int | Total info/negligible vulnerability count |
+| `.VulnerableDeps` | []DepDependency | Dependencies with ≥1 vulnerability, sorted by worst severity |
+| `.CleanDeps` | []DepDependency | Dependencies with no vulnerabilities |
+
+Each `DepDependency` has `.FileName`, `.FilePath`, `.MD5`, `.SHA1`, `.SHA256`, `.Packages` ([]DepPackage with `.ID`, `.Confidence`, `.URL`), and `.Vulnerabilities`.
+
+Each `DepVulnerability` has `.Source`, `.Name`, `.Severity`, `.CVSSv3` (`*DepCVSSv3` with `.BaseScore`, `.BaseSeverity`, `.AttackVector`), `.CVSSv2` (`*DepCVSSv2` with `.Score`, `.Severity`), `.CWEs`, `.Description`, `.Notes`, `.References` ([]DepReference with `.Source`, `.URL`, `.Name`).
+
+Vulnerabilities within each dependency are pre-sorted by severity (critical first).
+
+**Template functions (Dependency-Check):**
+
+| Function | Description |
+|---|---|
+| `depSevClass .Severity` | Returns a CSS class for a severity string (e.g. `sev-critical`) |
+| `depSevLabel .Severity` | Returns a human-readable label (e.g. `Critical`) |

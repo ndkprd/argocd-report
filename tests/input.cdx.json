@@ -1,0 +1,497 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:a6f745a3-0f3c-465e-896f-b3fbea66ab92",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-02-09T17:54:48Z",
+    "tools": {
+      "components": [
+        {
+          "group": "@cyclonedx",
+          "name": "cdxgen",
+          "version": "11.8.0",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@11.8.0",
+          "type": "application",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@11.8.0",
+          "publisher": "OWASP Foundation",
+          "authors": [
+            {
+              "name": "OWASP Foundation"
+            }
+          ]
+        }
+      ]
+    },
+    "authors": [
+      {
+        "name": "OWASP Foundation"
+      }
+    ],
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "component": {
+      "name": "devops/sample-project",
+      "group": "",
+      "version": "1.0.0",
+      "description": "A 2000s-style web application for converting Docker Compose to Kustomize configuration",
+      "purl": "pkg:npm/devops/devops%2Fsample-project@v1.4.1",
+      "bom-ref": "pkg:npm/devops/devops/sample-project@v1.4.1",
+      "author": "",
+      "type": "application",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "cdx:bom:componentTypes",
+        "value": "npm\\npypi"
+      },
+      {
+        "name": "cdx:bom:componentSrcFiles",
+        "value": "package-lock.json\\nrequirements.txt"
+      }
+    ]
+  },
+  "components": [
+    {
+      "group": "",
+      "name": "js-yaml",
+      "version": "4.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a90293e334315e5f252f006d1cc5b06937067c5399be23897addcecbfc661a4da0647ebbec224cf44bed7dd4a48167004d9863ff9e49674ae6cb79b2093e65b0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/js-yaml@4.1.1",
+      "type": "library",
+      "bom-ref": "pkg:npm/js-yaml@4.1.1",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "package-lock.json"
+        },
+        {
+          "name": "ResolvedUrl",
+          "value": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.1.tgz"
+        },
+        {
+          "name": "LocalNodeModulesPath",
+          "value": "node_modules/js-yaml"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "package-lock.json"
+              }
+            ],
+            "concludedValue": "package-lock.json"
+          }
+        ]
+      }
+    },
+    {
+      "group": "",
+      "name": "argparse",
+      "version": "2.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f3ef56a9e6db173a57f4e47e59ae8edbd6ac22881e44ccdc1ad00835da4c1c7c80835d1fd3969215505b704a867ff3d7c35123019faadbf6c4060dc3beeacadd"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Python-2.0",
+            "url": "https://opensource.org/licenses/Python-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:npm/argparse@2.0.1",
+      "type": "library",
+      "bom-ref": "pkg:npm/argparse@2.0.1",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "package-lock.json"
+        },
+        {
+          "name": "ResolvedUrl",
+          "value": "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
+        },
+        {
+          "name": "LocalNodeModulesPath",
+          "value": "node_modules/argparse"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 1,
+                "value": "package-lock.json"
+              }
+            ],
+            "concludedValue": "package-lock.json"
+          }
+        ]
+      }
+    },
+    {
+      "group": "",
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "description": "A very fast and expressive template engine.",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "url": "https://opensource.org/licenses/0BSD"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/jinja2@3.1.6",
+      "type": "library",
+      "bom-ref": "pkg:pypi/jinja2@3.1.6",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "requirements.txt"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 0.5,
+                "value": "requirements.txt"
+              },
+              {
+                "technique": "instrumentation",
+                "confidence": 1,
+                "value": "cdxgen-venv-EAFTpc"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "template"
+      ]
+    },
+    {
+      "group": "",
+      "name": "MarkupSafe",
+      "version": "3.0.2",
+      "description": "Safely add untrusted strings to HTML/XML markup.",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "url": "https://opensource.org/licenses/0BSD"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/markupsafe@3.0.2",
+      "type": "library",
+      "bom-ref": "pkg:pypi/markupsafe@3.0.2",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "requirements.txt"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 0.5,
+                "value": "requirements.txt"
+              },
+              {
+                "technique": "instrumentation",
+                "confidence": 1,
+                "value": "cdxgen-venv-EAFTpc"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "authors": [
+        {
+          "name": "Dave St.Germain <dave@st.germa.in>"
+        }
+      ],
+      "group": "",
+      "name": "jsmin",
+      "version": "3.0.1",
+      "description": "JavaScript minifier.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/jsmin@3.0.1",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tikitu/jsmin/"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:pypi/jsmin@3.0.1",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "requirements.txt"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 0.5,
+                "value": "requirements.txt"
+              },
+              {
+                "technique": "instrumentation",
+                "confidence": 1,
+                "value": "cdxgen-venv-EAFTpc"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "authors": [
+        {
+          "name": "André Malo <nd@perlig.de>"
+        }
+      ],
+      "group": "",
+      "name": "rcssmin",
+      "version": "1.1.2",
+      "description": "CSS Minifier",
+      "licenses": [
+        {
+          "expression": "OSI Approved"
+        }
+      ],
+      "purl": "pkg:pypi/rcssmin@1.1.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "http://opensource.perlig.de/rcssmin/"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:pypi/rcssmin@1.1.2",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "requirements.txt"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 0.5,
+                "value": "requirements.txt"
+              },
+              {
+                "technique": "instrumentation",
+                "confidence": 1,
+                "value": "cdxgen-venv-EAFTpc"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "authors": [
+        {
+          "name": "Kirill Simonov <xi@resolvent.net>"
+        }
+      ],
+      "group": "",
+      "name": "PyYAML",
+      "version": "6.0.2",
+      "description": "YAML parser and emitter for Python",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/pyyaml@6.0.2",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://pyyaml.org/"
+        }
+      ],
+      "type": "library",
+      "bom-ref": "pkg:pypi/pyyaml@6.0.2",
+      "properties": [
+        {
+          "name": "SrcFile",
+          "value": "requirements.txt"
+        }
+      ],
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "methods": [
+              {
+                "technique": "manifest-analysis",
+                "confidence": 0.5,
+                "value": "requirements.txt"
+              },
+              {
+                "technique": "instrumentation",
+                "confidence": 1,
+                "value": "cdxgen-venv-EAFTpc"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "services": [],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/argparse@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/js-yaml@4.1.1",
+      "dependsOn": [
+        "pkg:npm/argparse@2.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/devops/devops/sample-project@v1.4.1",
+      "dependsOn": [
+        "pkg:npm/js-yaml@4.1.1",
+        "pkg:npm/devops/devops/sample-project@v1.4.1"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/devops/devops/sample-project@v1.4.1",
+      "dependsOn": [
+        "pkg:pypi/jinja2@3.1.6",
+        "pkg:pypi/jsmin@3.0.1",
+        "pkg:pypi/markupsafe@3.0.2",
+        "pkg:pypi/pyyaml@6.0.2",
+        "pkg:pypi/rcssmin@1.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/markupsafe@3.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pyyaml@6.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/jinja2@3.1.6",
+      "dependsOn": [
+        "pkg:pypi/markupsafe@3.0.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/jsmin@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/rcssmin@1.1.2",
+      "dependsOn": []
+    }
+  ],
+  "annotations": [
+    {
+      "bom-ref": "metadata-annotations",
+      "subjects": [
+        "pkg:npm/devops/devops/sample-project@v1.4.1"
+      ],
+      "annotator": {
+        "component": {
+          "group": "@cyclonedx",
+          "name": "cdxgen",
+          "version": "11.8.0",
+          "purl": "pkg:npm/%40cyclonedx/cdxgen@11.8.0",
+          "type": "application",
+          "bom-ref": "pkg:npm/@cyclonedx/cdxgen@11.8.0",
+          "publisher": "OWASP Foundation",
+          "authors": [
+            {
+              "name": "OWASP Foundation"
+            }
+          ]
+        }
+      },
+      "timestamp": "2026-02-09T17:54:48Z",
+      "text": "This Software Bill-of-Materials (SBOM) document was created on Monday, February 9, 2026 with cdxgen. The data was captured during the build lifecycle phase. The document describes an application named 'devops/sample-project' with version '1.0.0'. There are 7 components."
+    }
+  ]
+}
