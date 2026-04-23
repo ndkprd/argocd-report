@@ -25,6 +25,7 @@ sidebar_position: 1
 | `sbom-cdx` | CycloneDX JSON | Software Bill of Materials (SBOM) reports |
 | `dependency-check` | Dependency-Check JSON | OWASP Dependency-Check vulnerability reports |
 | `sonarqube` | SonarQube issues API JSON | Static code analysis reports |
+| `trivy` | Trivy JSON (`-f json`) | Container image vulnerability and package inventory reports |
 
 ## Quick Start
 
@@ -46,6 +47,9 @@ cat dependency-check-report.json | devops-reporter -source dependency-check -o d
 
 # SonarQube analysis report
 cat sonarqube-issues.json | devops-reporter -source sonarqube -o sonarqube-report.html
+
+# Trivy vulnerability scan report
+trivy image -f json my-image:tag | devops-reporter -source trivy -o trivy-report.html
 ```
 
 ## Disclaimer

@@ -9,7 +9,7 @@ const sidebars = {
       type: 'category',
       label: 'Sources',
       collapsed: false,
-      items: ['sources/argocd', 'sources/kubeconform', 'sources/tenable-was', 'sources/sbom-cdx', 'sources/dependency-check', 'sources/sonarqube'],
+      items: ['sources/argocd', 'sources/kubeconform', 'sources/tenable-was', 'sources/sbom-cdx', 'sources/dependency-check', 'sources/sonarqube', 'sources/trivy'],
     },
     'templates',
   ],

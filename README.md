@@ -16,6 +16,7 @@ This project is independently developed and is not affiliated with, endorsed by,
 | `sbom-cdx` | [CycloneDX](https://cyclonedx.org/) Software Bill of Materials reports |
 | `dependency-check` | [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) vulnerability reports |
 | `sonarqube` | [SonarQube](https://www.sonarsource.com/products/sonarqube/) static code analysis reports |
+| `trivy` | [Trivy](https://trivy.dev/) container image vulnerability and package inventory reports |
 
 ## Installation
 
@@ -37,7 +38,7 @@ docker build -t devops-reporter .
 
 | Flag | Default | Description |
 |---|---|---|
-| `-source` | | **(required)** Report source: `argocd`, `kubeconform`, `tenable-was`, `sbom-cdx`, `dependency-check`, `sonarqube` |
+| `-source` | | **(required)** Report source: `argocd`, `kubeconform`, `tenable-was`, `sbom-cdx`, `dependency-check`, `sonarqube`, `trivy` |
 | `-o` | `report.html` | Output file path for the generated HTML report |
 | `-title` | *(source default)* | Title displayed in the report header |
 | `-template` | *(built-in)* | Path to a custom HTML template file |
@@ -111,6 +112,16 @@ cat sonarqube-issues.json | devops-reporter -source sonarqube
 cat sonarqube-issues.json | devops-reporter -source sonarqube -o sonarqube-report.html -title "Code Analysis — my-app (main)"
 ```
 
+### Trivy
+
+```bash
+trivy image -f json my-image:tag | devops-reporter -source trivy
+```
+
+```bash
+trivy image -f json my-image:tag | devops-reporter -source trivy -o trivy-report.html -title "Vulnerability Scan — my-app (v1.0.0)"
+```
+
 ### From a file
 
 ```bash
@@ -120,6 +131,7 @@ cat tests/tenable-was/tenable-was-sample.json | devops-reporter -source tenable-
 cat tests/sbom-cdx/sbom-cdx-sample.json | devops-reporter -source sbom-cdx -o report.html
 cat tests/input.depcheck.json | devops-reporter -source dependency-check -o report.html
 cat tests/input.sonarqube.json | devops-reporter -source sonarqube -o report.html
+cat tests/input.trivy.json | devops-reporter -source trivy -o report.html
 ```
 
 ### In GitLab CI/CD
