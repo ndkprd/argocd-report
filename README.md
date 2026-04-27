@@ -1,8 +1,6 @@
 # devops-reporter
 
-One CLI. Seven tools. One consistent report.
-
-`devops-reporter` reads JSON output from popular DevSecOps tools and generates **self-contained static HTML reports** — every report looks the same, carries the same structure, and can be themed with a single flag. No per-tool templates to maintain, no custom parsers to write.
+A CLI tool that reads JSON output from popular (read: the ones I use at work) DevSecOps tools and generates **self-contained static HTML reports** — every report looks the same, carries the same structure, and can be themed with a single flag. No per-tool templates to maintain, no custom parsers to write.
 
 ## Disclaimer
 
@@ -21,19 +19,6 @@ This project is independently developed and is not affiliated with, endorsed by,
 | `sonarqube` | [SonarQube](https://www.sonarsource.com/products/sonarqube/) — Static code analysis |
 | `tenable-was` | [Tenable WAS](https://www.tenable.com/products/web-app-scanning) — Web application security scan |
 | `trivy` | [Trivy](https://trivy.dev/) — Container image vulnerabilities and SBOM |
-
----
-
-## Why unified reporting matters
-
-DevSecOps pipelines typically span half a dozen tools — each with its own JSON schema, its own terminology, and no HTML output at all. Getting a readable, shareable report out of each one means writing and maintaining seven separate scripts or templates.
-
-`devops-reporter` solves this in one step:
-
-- **Consistent structure** — every report has the same header, status banner, summary grid, and detail sections regardless of source. Stakeholders always know where to look.
-- **Self-contained HTML** — CSS is inlined into the output file, so artifacts can be shared, emailed, or archived without breaking styles.
-- **One flag to rebrand** — `--css my-theme.css` swaps the entire visual identity. No code changes, no template edits. Works for all seven sources at once.
-- **CI-native** — pipe directly from any tool: `trivy image -f json my-image | devops-reporter --source trivy`.
 
 ---
 
@@ -151,7 +136,7 @@ trivy image -f json my-image:tag | devops-reporter --source trivy \
 
 ## Themes and branding
 
-All report styles are driven by a single CSS file. Swap it with `--css` and every source gets the new look instantly — no template edits, no per-source configuration.
+All report styles are driven by a single CSS file. Swap it with `--css` and every source gets the new look instantly.
 
 ### Built-in: Paper (default)
 
